@@ -1,7 +1,7 @@
 import React from "react";
 
 const App = () => (
-  <div className="productPage">
+  <div className="ProductPage">
     <div className="Page">
       <header>
         <h1>메뉴목록</h1>
@@ -11,8 +11,8 @@ const App = () => (
           <li>
             <div className="ProductItem">
               <div className="description">
-                <h2>해물 계란 라면</h2>
-                <div>가격: 6,000원</div>
+                <h2>고소한 바질 파스타</h2>
+                <div>6,000원</div>
                 <button className="Button brand">주문하기</button>
               </div>
               <div className="thumbnail">
