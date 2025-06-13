@@ -1,7 +1,12 @@
 import React from "react";
-import App from "./App";
 import ReactDOM from "react-dom/client";
-import { worker } from "../../shared/mocks/browser";
+import App from "./App";
+
+const { worker } = require("../../shared/mocks/browser");
+
+worker.start({
+  onUnhandledRequest: "bypass",
+});
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 

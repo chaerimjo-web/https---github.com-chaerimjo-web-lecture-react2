@@ -24,7 +24,7 @@
     "workerDirectory": "shared/public"
   },
   "dependencies": {
-    "msw": "^2.10.2"
+    "msw": "^1.2.1"
   },
   "devDependencies": {
     "@babel/preset-env": "^7.27.2"

@@ -1,15 +1,9 @@
-import React from "react";
+import React, { Component } from "react";
+import ProductApi from "shared/api/ProductApi";
 import Page from "../../components/Page";
 import Title from "../../components/Title";
 import Navbar from "../../components/Navbar";
 import ProductItem from "../../components/ProductItem";
-
-const fakeProduct = {
-  id: "CACDA421",
-  name: "해물 계란 라면",
-  price: 6000,
-  thumbnail: "./images/menu-해물계란라면.jpg",
-};
 
 class ProductPage extends React.Component {
   constructor(props) {
@@ -20,14 +14,31 @@ class ProductPage extends React.Component {
     };
   }
 
+  async fetch() {
+    try {
+      const productList = await ProductApi.fetchProductList();
+      console.log("가져온 상품 목록:", productList);
+      this.setState({ productList });
+    } catch (e) {
+      console.error("상품 목록 가져오기 실패:", e);
+    }
+  }
+
+  componentDidMount() {
+    this.fetch();
+    console.log("test");
+  }
+
   render() {
     return (
       <div className="ProductPage">
-        <Page header={<Title>메뉴목록</Title>} footer={<Navbar />}>
+        <Page header={<Title>메뉴목록</Title>} footer={<Navbar />}> 
           <ul>
-            <li>
-              <ProductItem product={fakeProduct} />
-            </li>
+            {this.state.productList.map((product) => (
+              <li key={product.id}>
+                <ProductItem product={product} />
+              </li>
+            ))}
           </ul>
         </Page>
       </div>

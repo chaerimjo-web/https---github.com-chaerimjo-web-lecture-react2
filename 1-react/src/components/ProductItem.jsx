@@ -1,9 +1,9 @@
 import React from "react";
 import Button from "./Button";
 
-const ProductItem = ({product}) => {
-  const { id, name, price, thumbnail } = product;
-  
+const ProductItem = ({ product }) => {
+  const { name, price, thumbnail } = product;
+
   return (
     <div className="ProductItem">
       <div className="description">
@@ -17,7 +17,7 @@ const ProductItem = ({product}) => {
         </Button>
       </div>
       <div className="thumbnail">
-        <img src={thumbnail} alt="${name} ${price}" />
+        <img src={thumbnail} alt={`${name} ${price.toLocaleString()}원`} />
       </div>
     </div>
   );
