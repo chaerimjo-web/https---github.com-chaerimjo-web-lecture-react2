@@ -4,6 +4,8 @@ import Title from "../../components/Title";
 import NaveBar from "../../components/Navbar";
 import Card from "../../components/Card";
 import OrderDeliveryCard from "./OrderDeliveryCard";
+import OrderPaymentCard from "./OrderPaymentCard";
+import OrderStatusCard from "./OrderStatusCard";
 
 const fakeOrder = {
   id: "CACDA420",
@@ -26,6 +28,8 @@ const OrderPage = () => {
   return (
     <div className="OrderPage">
       <Page header={<Title>주문내역</Title>} footer={<NaveBar />}>
+				<OrderStatusCard order={fakeOrder} />
+				<OrderPaymentCard order={fakeOrder}  />
         <OrderDeliveryCard order={fakeOrder} />
       </Page>
     </div>
