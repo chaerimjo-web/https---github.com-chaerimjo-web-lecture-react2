@@ -19,7 +19,7 @@ const CartPage = ({ product }) => {
       <Page
         header={<Title backUrl={"/"}>장바구니</Title>}
         footer={
-          <Button styleType={" brand-solid"} block>
+          <Button styleType={" brand-solid"} block form="order-form">
             결제하기
           </Button>
         }
