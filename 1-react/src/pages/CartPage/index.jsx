@@ -3,6 +3,7 @@ import Page from "../../components/Page";
 import Title from "../../components/Title";
 import Button from "../../components/Button";
 import ProductItem from "../../components/ProductItem";
+import FormControl from "../../components/FormControl";
 
 const fakeProduct = {
   id: "CACDA421",
@@ -23,6 +24,9 @@ const CartPage = ({ product }) => {
         }
       >
         <ProductItem product={fakeProduct}></ProductItem>
+        <FormControl htmlFor={'name'} label={'이름'} required >
+          <input id="name" />
+        </FormControl>
       </Page>
     </div>
   );

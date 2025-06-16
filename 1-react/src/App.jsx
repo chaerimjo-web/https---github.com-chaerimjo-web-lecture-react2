@@ -6,9 +6,9 @@ import OrderableProductItem from "./pages/ProductPage/OrderableProductItem";
 
 const App = () => {
   return (
-    <ProductPage />
+    // <ProductPage />
     // <OrderPage />
-    // <CartPage />
+    <CartPage />
   );
 };
 export default App;
