@@ -2,8 +2,13 @@ import React from "react";
 import FormControl from "../../components/FormControl";
 
 const OrderForm = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log("submit");
+  };
+
   return (
-    <form className="OrderForm" id="order-form">
+    <form className="OrderForm" id="order-form" onSubmit={handleSubmit}>
       <FormControl htmlFor={"deliveryAddress"} label={"주소"} required>
         <input
           type="text"
