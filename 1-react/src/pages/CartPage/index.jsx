@@ -4,7 +4,7 @@ import Title from "../../components/Title";
 import Button from "../../components/Button";
 import ProductItem from "../../components/ProductItem";
 import FormControl from "../../components/FormControl";
-import OrderForm from '../ProductPage/OrderForm'
+import OrderForm from './OrderForm'
 
 const fakeProduct = {
   id: "CACDA421",
