@@ -4,7 +4,8 @@ import Title from "../../components/Title";
 import Button from "../../components/Button";
 import ProductItem from "../../components/ProductItem";
 import FormControl from "../../components/FormControl";
-import OrderForm from './OrderForm'
+import OrderForm from "./OrderForm";
+import PaymentButton from "./PaymentButton";
 
 const fakeProduct = {
   id: "CACDA421",
@@ -18,16 +19,9 @@ const CartPage = ({ product }) => {
     <div className="CartPage">
       <Page
         header={<Title backUrl={"/"}>장바구니</Title>}
-        footer={
-          <Button styleType={" brand-solid"} block form="order-form">
-            결제하기
-          </Button>
-        }
+        footer={<PaymentButton />}
       >
         <ProductItem product={fakeProduct}></ProductItem>
-        {/* <FormControl htmlFor={'name'} label={'이름'} required >
-          <input id="name" />
-        </FormControl> */}
         <OrderForm />
       </Page>
     </div>
