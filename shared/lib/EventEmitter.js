@@ -1,4 +1,4 @@
-export const createEventEmitter = (value) => {
+const createEventEmitter = (value) => {
   let handlers = [];
 
   const on = (handler) => handlers.push(handler);
@@ -19,3 +19,5 @@ export const createEventEmitter = (value) => {
     set,
   };
 };
+
+export default createEventEmitter;
