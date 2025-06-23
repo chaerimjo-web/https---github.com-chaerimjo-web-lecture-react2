@@ -9,9 +9,31 @@ class OrderForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+  getInputValueByName(name) {
+    if (!this.formRef.current) return;
+
+    const inputElement = this.formRef.current.elements.namedItem(name);
+    if (!inputElement) return "";
+
+    return inputElement.value;
+  }
+
   handleSubmit(e) {
     e.preventDefault();
-    console.log(this.formRef);
+
+    const deliveryAddress = this.getInputValueByName("deliveryAddress");
+    const deliveryContact = this.getInputValueByName("deliveryContact");
+    const paymentMethod = this.getInputValueByName("paymentMethod");
+    const messageToShop = this.getInputValueByName("messageToShop");
+    const messageToRider = this.getInputValueByName("deliveryAddress");
+
+    console.log(this.formRef, {
+      deliveryAddress,
+      deliveryContact,
+      paymentMethod,
+      messageToShop,
+      messageToRider,
+    });
   }
 
   render() {
