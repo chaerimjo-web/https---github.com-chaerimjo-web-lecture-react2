@@ -1,11 +1,12 @@
 import React from "react";
+import * as MyRouter from "../lib/MyRouter";
 
 const Title = ({ backUrl, children }) => {
   if (backUrl) {
     return (
       <>
-        <a href={backUrl}></a>
-        <h1 style={{paddingRight: "44px"}}>{children}</h1>
+        <MyRouter.Link to={backUrl}/>
+        <h1 style={{ paddingRight: "44px" }}>{children}</h1>
       </>
     );
   }
