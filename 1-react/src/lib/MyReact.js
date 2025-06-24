@@ -1,5 +1,5 @@
 import React from "react";
-import createEventEmitter from "../../../shared/lib/EventEmitter";
+import createEventEmitter from "shared/lib/EventEmitter";
 
 const MyReact = function () {
   function createContext(initailValue) {
