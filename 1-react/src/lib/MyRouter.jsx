@@ -1,15 +1,20 @@
 import React from "react";
 
-const routerContext = React.createContext({});
+export const routerContext = React.createContext({});
+routerContext.displayName = "RouterContext";
 
-export const Link = ({ to, ...rest }) => {
-  const handleClick = (e) => {
-    e.preventDefault();
-  };
+export const Link = ({ to, ...rest }) => (
+  <routerContext.Consumer>
+    {({ to, changePath }) => {
+      const handleClick = (e) => {
+        e.preventDefault();
+        if (to !== path) changePath(to);
+      };
 
-  return <a {...rest} href={to} onClick={handleClick} />;
-};
-
+      return <a {...rest} href={to} onClick={handleClick} />;
+    }}
+  </routerContext.Consumer>
+);
 export class Router extends React.Component {
   constructor(props) {
     super(props);
