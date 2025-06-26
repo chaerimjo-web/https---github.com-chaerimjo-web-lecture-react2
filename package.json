@@ -24,6 +24,7 @@
     "workerDirectory": "shared/public"
   },
   "dependencies": {
+    "mkdirp": "^3.0.1",
     "msw": "^1.2.1"
   },
   "devDependencies": {

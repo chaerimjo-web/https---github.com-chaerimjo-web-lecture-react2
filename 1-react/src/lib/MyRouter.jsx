@@ -1,7 +1,11 @@
 import React, { Children } from "react";
-import OrderPage from "../pages/OrderPage";
-import ProductPage from "../pages/ProductPage";
-import CartPage from "../pages/CartPage";
+//import OrderPage from "../pages/OrderPage";
+//import ProductPage from "../pages/ProductPage";
+//이 부분은 어떻게 쓴거야 코드가 어딧어 ?
+//이 상태에서 라우터쪽 설정만 바꾸면 될 것 같긴한데 ? 웅...내일 해도될듯 이거는 대충 원인은 알았으니깐 마무리 하구 내가 내일 안되면 또 봐줄게주석하고 어떻게해저 저 마이라우터랑 앱 제이엑스저거를 일단 저 선생님이 말한거에 맞게 다시 한번 봐봐알게ㅐㅆ오...주석은한느게맞은듯웅..
+//import CartPage from "../pages/CartPage";
+
+export const test = 123;
 
 export const routerContext = React.createContext({});
 routerContext.displayName = "RouterContext";
@@ -91,3 +95,24 @@ export const Routes = ({ children }) => {
 };
 
 export const Route = () => null; //데이터 저장소로서의 역할
+
+export const withRouter = (WrappedComponent) => {
+  const WithRouter = (props) => (
+    <routerContext.Consumer>
+      {({ path, changePath }) => {
+        const navigate = (nextPath) => {
+          if (path !== nextPath) changePath(nextPath);
+        };
+
+        const match = (comparedPath) => path === comparedPath;
+
+        const enhancedProps = {
+          navigate,
+          match,
+        };
+        return <WrappedComponent {...props} {...enhancedProps} />;
+}}
+    </routerContext.Consumer>
+  )
+ return WithRouter
+}
