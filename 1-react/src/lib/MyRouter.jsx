@@ -26,10 +26,27 @@ export class Router extends React.Component {
       path: window.location.pathname,
     };
     this.handlechangePath = this.handlechangePath.bind(this);
+    this.handleOnpopstate = this.handleOnpopstate.bind(this);
   }
 
   handlechangePath(path) {
     this.setState({ path });
+    window.history.pushState({ path }, "", path);
+  }
+
+  handleOnpopstate(event) {
+    const nextPath = event.state && event.state.path;
+    if (!nextPath) return;
+    this.setState({ path: nextPath });
+  }
+
+  componentDidMount() {
+    window.addEventListener("popstate", this.handleOnpopstate);
+    window.history.replaceState({ path: this.state.path }, "");
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener("popstate", this.handleOnpopstate);
   }
 
   render() {
