@@ -27,7 +27,6 @@ class ProductPage extends React.Component {
 
   componentDidMount() {
     this.fetch();
-    console.log("test");
   }
 
   render() {

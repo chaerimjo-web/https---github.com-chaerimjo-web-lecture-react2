@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Children } from "react";
 import OrderPage from "../pages/OrderPage";
 import ProductPage from "../pages/ProductPage";
 import CartPage from "../pages/CartPage";
@@ -45,14 +45,32 @@ export class Router extends React.Component {
   }
 }
 
-export const Routes = () => (
-  <routerContext.Consumer>
-    {({ path }) => (
-      <>
-        {path === "/cart" && <CartPage />}
-        {path === "/order" && <OrderPage />}
-        {!["/cart", "/order"].includes(path) && <ProductPage />}
-      </>
-    )}
-  </routerContext.Consumer>
-);
+export const Routes = ({ children }) => {
+  return (
+    <routerContext.Consumer>
+      {({ path }) => {
+        let selectedRoute = null;
+
+        React.Children.forEach(children, (child) => {
+          // 리액트 엘리먼트인지 검사
+          if (!React.isValidElement(child)) return;
+
+          // 프레그먼트 검사
+          if (child.type === React.Fragment) return;
+
+          // // Route 컴포넌트 검사
+          if (!child.props.path || !child.props.element) return;
+
+          // //요청 경로를 검사한다.
+          if (child.props.path !== path.replace(/\?.*$/, "")) return;
+
+          selectedRoute = child.props.element;
+        });
+
+        return selectedRoute;
+      }}
+    </routerContext.Consumer>
+  );
+};
+
+export const Route = () => null; //데이터 저장소로서의 역할
