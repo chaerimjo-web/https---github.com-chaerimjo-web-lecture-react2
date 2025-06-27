@@ -1,4 +1,5 @@
 import React from "react";
+import * as MyRouter from "../../lib/MyRouter";
 import Page from "../../components/Page";
 import Title from "../../components/Title";
 import Button from "../../components/Button";
@@ -30,7 +31,8 @@ class CartPage extends React.Component {
   }
 
   handleSubmit(values) {
-    console.log('here',values);
+    console.log("here", values);
+    this.props.navigate("/order");
   }
 
   render() {
@@ -49,4 +51,4 @@ class CartPage extends React.Component {
   }
 }
 
-export default CartPage;
+export default MyRouter.withRouter(CartPage);

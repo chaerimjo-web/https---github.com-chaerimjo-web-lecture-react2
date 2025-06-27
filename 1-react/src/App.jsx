@@ -16,6 +16,7 @@ const App = () => (
   </MyRouter.Router>
 );
 
+export default App;
 
 export class Header extends React.Component {
   render() {
@@ -53,9 +54,9 @@ const withLogging = (WrappComponent) => {
 const EnhancedHeader = withLogging(Header);
 const EnhancedButton = withLogging(Button);
 
-export default () => (
-  <>
-    <EnhancedHeader />
-    <EnhancedButton />
-  </>
-);
+// export default () => (
+//   <>
+//     <EnhancedHeader />
+//     <EnhancedButton />
+//   </>
+// );
