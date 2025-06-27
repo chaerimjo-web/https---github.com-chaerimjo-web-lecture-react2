@@ -7,19 +7,20 @@ const Page = ({ header, children, footer }) => (
   <div className="Page">
     <header>{header}</header>
     <main>{children}</main>
-    {/* <footer>{footer}</footer> */}
+    <footer>{footer}</footer>
     <MyLayout.DialogContainer />
-    <MyLayout.layoutContext.Consumer>
+    {/* <MyLayout.layoutContext.Consumer>
       {({ setDialog }) => (
         <button
           onClick={() => {
             setDialog(<Dialog />);
+            setTimeout(() => setDialog(null), 3000);
           }}
         >
           다이얼러그 버튼
         </button>
       )}
-    </MyLayout.layoutContext.Consumer>
+    </MyLayout.layoutContext.Consumer> */}
   </div>
 );
 
